@@ -1,0 +1,30 @@
+---
+- hosts: all
+  tasks:
+    - name: Update and upgrade apt packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+        update_cache: yes
+
+    - name: Install Kubernetes
+      apt:
+        name: kubeadm
+        state: present
+
+    - name: Ensure Docker service is running
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Ensure Kubernetes service is running
+      service:
+        name: kubelet
+        state: started
+        enabled: yes

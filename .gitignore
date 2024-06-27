@@ -1,0 +1,14 @@
+# Terraform files
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# Python files
+__pycache__/
+*.pyc
+
+# Docker files
+docker-compose.yml
+
+# Kubernetes files
+*.kubeconfig
